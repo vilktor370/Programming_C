@@ -8,7 +8,7 @@ find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 
 set(HEADERS Common.h)
-set(SOURCES Common.cpp Contour.cpp)
+set(SOURCES Common.cpp TemplateMatching.cpp)
 # Add source files
 add_executable(main ${SOURCES} ${HEADERS})
 
