@@ -2,6 +2,13 @@
 
 
 cv::Mat load(const string& img_file_name, int mode){
+    /*
+        input:
+            Input image file name
+            mode = 1(BGR) || 0(Gray scale)
+        output:
+            image Mat
+    */
     Mat img= imread(img_file_name, mode);
     if (img.empty()){
         CV_Error(-2, "\nImage fail to read!\n");
@@ -12,11 +19,18 @@ cv::Mat load(const string& img_file_name, int mode){
 
 Mat binary(Mat& input_img, int THREHOLD){
     /*
-        input: Gray scale Mat, threshold value
-        output: hard-binarized Mat
+        input: 
+            Gray scale Mat 
+            Threshold value
+        output: 
+            hard-binarized Mat
     */
     if(input_img.empty()){
         CV_Error(-2, "\nInput image is empty!\n");
+        return Mat();
+    }
+    if(input_img.channels() > 1){
+        CV_Error(-2, "\nTo binarize an image, input image needs to be gray scale\n");
         return Mat();
     }
     int rows = input_img.rows;
