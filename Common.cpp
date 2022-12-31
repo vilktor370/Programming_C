@@ -1,13 +1,22 @@
 #include "Common.h"
 
 
+cv::Mat load(const string& img_file_name, int mode){
+    Mat img= imread(img_file_name, mode);
+    if (img.empty()){
+        CV_Error(-2, "\nImage fail to read!\n");
+        return Mat();
+    }
+    return img;
+}
+
 Mat binary(Mat& input_img, int THREHOLD){
     /*
         input: Gray scale Mat, threshold value
         output: hard-binarized Mat
     */
     if(input_img.empty()){
-        CV_Error(0, "Input image is empty!");
+        CV_Error(-2, "\nInput image is empty!\n");
         return Mat();
     }
     int rows = input_img.rows;
