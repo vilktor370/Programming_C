@@ -7,8 +7,7 @@ find_package(OpenCV REQUIRED)
 # Include OpenCV directories
 include_directories(${OpenCV_INCLUDE_DIRS})
 
-set(HEADERS Common.h)
-set(SOURCES Common.cpp TemplateMatching.cpp)
+set(SOURCES Blendimage.cpp)
 # Add source files
 add_executable(main ${SOURCES} ${HEADERS})
 
